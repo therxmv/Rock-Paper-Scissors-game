@@ -4,12 +4,6 @@ import java.util.Scanner;
 public class rps_game {
     public static void main(String[] args) {
 
-        /*
-        *
-        * to-do:
-        *
-        * */
-
         System.out.println("""
                 ********************************************
                 *         Rock-Paper-Scissors game         *
