@@ -12,7 +12,7 @@ public class rps_game {
 
         System.out.println("""
                 ********************************************
-                *         Rock-paper-scissors game         *
+                *         Rock-Paper-Scissors game         *
                 *                                          *
                 * Choose between rock, paper or scissors   *
                 * and try to win bot.                      *
