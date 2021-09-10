@@ -1,8 +1,9 @@
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class rps_game {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         System.out.println("""
                 ********************************************
@@ -26,9 +27,9 @@ class Rps{
 
     private String player;
     private String bot;
-    private final String[] params = {"Rock","Paper","Scissors"};
+    private final String[] params = {"Rock", "Paper", "Scissors"};
 
-    public void beginning(){
+    public void beginning() throws InterruptedException {
         System.out.print("Do you want to start? >> ");
         String start = sc.next();
         System.out.println();
@@ -42,7 +43,7 @@ class Rps{
     }
 
     //Ввод пользователя
-    public void getParam(){
+    private void getParam(){
         System.out.print("You >> ");
         player = sc.next();
 
@@ -53,7 +54,7 @@ class Rps{
     }
 
     //Рандомный выбор бота
-    public void getBotParam(){
+    private void getBotParam(){
         int rnd = new Random().nextInt(params.length);
         bot = params[rnd];
         System.out.println("Bot >> " + bot);
@@ -61,15 +62,23 @@ class Rps{
     }
 
     //Основной процес
-    public void game(){
+    private void game() throws InterruptedException {
         getParam();
+        TimeUnit.MILLISECONDS.sleep(500);
         getBotParam();
 
+        TimeUnit.MILLISECONDS.sleep(400);
         //Сравнение
-        if ((params[0].equalsIgnoreCase(player) && params[2].equalsIgnoreCase(bot)) || (params[1].equalsIgnoreCase(player) && params[0].equalsIgnoreCase(bot)) || (params[2].equalsIgnoreCase(player) && params[1].equalsIgnoreCase(bot))){
+        if ((params[0].equalsIgnoreCase(player) && params[2].equalsIgnoreCase(bot)) ||
+                (params[1].equalsIgnoreCase(player) && params[0].equalsIgnoreCase(bot)) ||
+                (params[2].equalsIgnoreCase(player) && params[1].equalsIgnoreCase(bot))){
+
             System.out.println("You win!\n");
         }
-        else if ((params[2].equalsIgnoreCase(player) && params[0].equalsIgnoreCase(bot)) || (params[0].equalsIgnoreCase(player) && params[1].equalsIgnoreCase(bot)) || (params[1].equalsIgnoreCase(player) && params[2].equalsIgnoreCase(bot))){
+        else if ((params[2].equalsIgnoreCase(player) && params[0].equalsIgnoreCase(bot)) ||
+                (params[0].equalsIgnoreCase(player) && params[1].equalsIgnoreCase(bot)) ||
+                (params[1].equalsIgnoreCase(player) && params[2].equalsIgnoreCase(bot))){
+
             System.out.println("You lose!\n");
         }
         else{
