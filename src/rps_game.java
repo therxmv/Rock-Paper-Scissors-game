@@ -42,7 +42,7 @@ class Rps{
         }
     }
 
-    //Ввод пользователя
+    // user input
     private void getParam(){
         System.out.print("You >> ");
         player = sc.next();
@@ -53,7 +53,7 @@ class Rps{
         }
     }
 
-    //Рандомный выбор бота
+    // bot's random value
     private void getBotParam(){
         int rnd = new Random().nextInt(params.length);
         bot = params[rnd];
@@ -61,14 +61,14 @@ class Rps{
 
     }
 
-    //Основной процес
+    // main process
     private void game() throws InterruptedException {
         getParam();
         TimeUnit.MILLISECONDS.sleep(500);
         getBotParam();
 
         TimeUnit.MILLISECONDS.sleep(400);
-        //Сравнение
+        // check who wins
         if ((params[0].equalsIgnoreCase(player) && params[2].equalsIgnoreCase(bot)) ||
                 (params[1].equalsIgnoreCase(player) && params[0].equalsIgnoreCase(bot)) ||
                 (params[2].equalsIgnoreCase(player) && params[1].equalsIgnoreCase(bot))){
